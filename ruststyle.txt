@@ -1,0 +1,39 @@
+Rust Code Style Guide
+
+Identifiers
+
+Since the scope/origin of identifiers is important but impossible to infer, 
+we use these conventions for clarity. 
+
+libname - external package
+   use name as libname
+
+lType - external package type
+   use name::Type as lType
+
+tType - local crate type; export from crate via:
+   pub type Thing = tThing
+
+Type - stdlib types are used without a prefix, per Rust idiom
+   use std::collections::HashMap
+
+eEnum - enum element alias
+   use tThing::Item as eItem
+
+kConst - module or function constant
+
+sVar - static variable
+
+iVar - function argument (i for input)
+
+aVar - local variable
+
+fVar - closure function
+
+cVar - closure function argument or local variable
+
+s.m - no prefix for struct member names
+
+runFn() - thread top-level function
+
+youNameIt() - function names use camel-case, but no prefix (exception: runFn)
