@@ -11,28 +11,44 @@ libname - external package
 lType - external package type
    use name::Type as lType
 
-tType - local crate type; export from crate via:
+tType - local crate type. Export from crate without prefix.
+   struct tThing { m: i32 }
    pub type Thing = tThing
 
 Type - stdlib types are used without a prefix, per Rust idiom
    use std::collections::HashMap
 
 eEnum - enum element alias
+   enum tThing { Item }
    use tThing::Item as eItem
 
 kConst - module or function constant
+   const kThing: i32 = -1;
 
 sVar - static variable
+   static sThing: tThing = tThing{...};
 
-iVar - function argument (i for input)
+iVar - function argument (i for input). For trivial functions with one argument, simply i is fine.
+   fn f(iNum: i32, iWord: &str) {...}
+   fn set(&mut self, i: i32) { self.m = i; }
 
-aVar - local variable
+aVar - local variable. An iterator variable can be simply a, or a1 & a2 for nested loops
+   let aVar = 0;
+   for a in aIter {...}
+   for a1 in aIter1 {
+       for a2 in aIter2 {...}
+   }
 
 fVar - closure function
+   let fSq = |c: i32| -> i32 { c * c };
 
-cVar - closure function argument or local variable
+cVar - closure argument or variable. For trivial closures with one argument, simply c is fine.
+   call(|cX, cY| {
+       let cZ = 0;
+       plot(aGraph, cX, cY, cZ);
+   });
 
-s.m - no prefix for struct member names
+self.m - no prefix for struct member names
 
 runFn() - thread top-level function
 
