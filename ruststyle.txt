@@ -5,7 +5,10 @@ Identifiers
 Since the scope/origin of identifiers is important but impossible to infer, 
 we use these conventions for clarity. 
 
-libname - external package
+std_fn - stdlib function (only necessary if std_fn appears often)
+   use std::name::op as std_op
+
+libname - external package (only necessary if libname::anything appears)
    use name as libname
 
 lType - external package type
