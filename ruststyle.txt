@@ -51,7 +51,10 @@ cVar - closure argument or variable. For trivial closures with one argument, sim
        plot(aGraph, cX, cY, cZ);
    });
 
-self.m - no prefix for struct member names
+dVar - deconstruction result
+   if let Some(dVal) = aVal { f(dVal) }
+
+self.m - no prefix for struct member & method names
 
 runFn() - thread top-level function
 
